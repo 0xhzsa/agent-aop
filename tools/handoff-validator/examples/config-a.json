@@ -1,0 +1,30 @@
+{
+  "name": "Claude Code Agent",
+  "model": "claude-sonnet-4-20250514",
+  "permissions": {
+    "allow": ["read_file", "write_file", "bash", "web_search"]
+  },
+  "tools": [
+    {
+      "name": "read_file",
+      "description": "Read files from the filesystem",
+      "input_schema": {
+        "type": "object",
+        "properties": { "path": { "type": "string" } },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "write_file",
+      "description": "Write files to the filesystem",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "content": { "type": "string" }
+        },
+        "required": ["path", "content"]
+      }
+    }
+  ]
+}
